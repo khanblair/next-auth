@@ -75,7 +75,7 @@ export async function POST(req) {
     }
   }
   if(eventType === 'user.deleted') {
-    const {id} = env?.data;
+    const {id} = evt?.data;
     try {
       await deleteUser(id);
       return new Response('User is deleted', {
@@ -90,5 +90,6 @@ export async function POST(req) {
     }
   }
 
-  return new Response('', { status: 200 })
+  return new Response('', { status: 200 });
+
 }
